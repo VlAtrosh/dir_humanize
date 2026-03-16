@@ -143,12 +143,7 @@ dir_humanize/
 
 1. Преобразование размеров (naturalsize)
 
-python
-if args.locale:
-    try:
-        humanize.i18n.activate(args.locale)
-    except FileNotFoundError:
-        print(f"Локаль {args.locale} не найдена...")
+size_str = humanize.naturalsize(size, binary=args.binary)
 
 Что делает: Конвертирует размер из байтов в KB/MB/GB или KiB/MiB/GiB в зависимости от флага --binary. Параметр binary=True переключает на бинарные единицы (KiB, MiB)
 
