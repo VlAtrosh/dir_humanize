@@ -142,12 +142,17 @@ dir_humanize/
 # Ключевые концепции, реализованные в коде
 
 1. Преобразование размеров (naturalsize)
+
 size_str = humanize.naturalsize(size, binary=args.binary)
+
 Что делает: Конвертирует размер из байтов в KB/MB/GB или KiB/MiB/GiB в зависимости от флага --binary. Параметр binary=True переключает на бинарные единицы (KiB, MiB)
 
 2. Естественное время (naturaltime, naturalday)
+
 if abs(delta.total_seconds()) < 7 * 24 * 3600:
+    
     return humanize.naturaltime(delta)  # "2 часа назад", "5 минут назад"
+
 return humanize.naturalday(mtime)        # "сегодня", "вчера"
 
 Что делает: Для файлов младше недели показывает относительное время ("3 минуты назад"). Для более старых — день недели или дату ("вчера", "сегодня").
@@ -163,6 +168,7 @@ if args.locale:
 Что делает: Активирует указанную локаль, после чего все функции humanize (naturaltime, naturalsize, intcomma) начинают выводить текст на нужном языке.
 
 4. Разделители разрядов (intcomma)
+
 print(f"Папок: {humanize.intcomma(n_dirs)}, файлов: {humanize.intcomma(n_files)}.")
 
 Что делает: Преобразует 1000 в 1,000 для английской локали или 1 000 для русской, делая большие числа легко читаемыми
