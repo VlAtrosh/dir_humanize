@@ -32,12 +32,12 @@
    ```bash
    pip install humanize
    ```
-##📋 Справка по командам
-
+## 📋 Справка по командам
+```bash
 usage: dir_humanize.py [-h] [--locale LOCALE] [--binary] [directory]
 
 📁 Консольная утилита для анализа содержимого директории с humanize
-```bash
+
 positional arguments:
   directory             Путь к директории (по умолчанию: текущая)
 
@@ -46,3 +46,56 @@ options:
   --locale LOCALE, -l LOCALE
                         Выбрать локаль (например, en_US, ru_RU)
   --binary              Использовать бинарные единицы (KiB, MiB) вместо десятичных (KB, MB)
+```
+### 🎨 Примеры вывода
+
+## Английская локаль (en_US), десятичные единицы (KB, MB)
+```
+python dir_humanize.py ~/Documents
+
+Директория: /home/user/Documents
+
+  [DIR]  projects                                    today at 10:30
+  [DIR]  archive                                     3 days ago
+    2.4 MB  report.pdf                               2 hours ago
+   145.2 KB  profile.png                             yesterday
+    1.1 KB  notes.txt                                5 minutes ago
+
+Папок: 2, файлов: 3.
+Суммарный размер файлов: 2.5 MB.
+```
+## Русская локаль (ru_RU), бинарные единицы (KiB, MiB)
+```
+python dir_humanize.py C:\Users\user\Downloads --locale ru_RU --binary
+
+Директория: C:\Users\user\Downloads
+
+  [DIR]  установщики                                  2 дня назад
+    2.3 MiB  driver_installer.exe                     3 дня назад
+  512.0 KiB  image.jpg                                 1 час назад
+    2.0 MiB  report.pdf                                сейчас
+
+Папок: 1, файлов: 3.
+Суммарный размер файлов: 4.8 MiB.
+```
+
+### 🔧 Детали реализации
+
+## 📂 Структура проекта
+```
+dir_humanize/
+├── dir_humanize.py   # Основной файл с реализацией утилиты
+└── README.md         # Документация проекта
+```
+
+## 📦 Модуль dir_humanize.py
+
+
+
+
+
+
+
+
+
+
