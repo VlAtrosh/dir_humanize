@@ -104,8 +104,35 @@ size_str = humanize.naturalsize(size, binary=args.binary)
 - binary=True → KiB, MiB, GiB
 - binary=False (по умолчанию) → KB, MB, GB
 
+2. Естественное время (naturaltime, naturalday)
+```
+if abs(delta.total_seconds()) < 7 * 24 * 3600:
+    return humanize.naturaltime(delta)  # "3 minutes ago", "2 часа назад"
+return humanize.naturalday(mtime)        # "yesterday", "вчера"
+```
+
+3. Локализация (i18n.activate)
+```
+if args.locale:
+    humanize.i18n.activate(args.locale)
+    # Все дальнейшие вызовы humanize будут на выбранном языке
+```
 
 
+4. Разделители разрядов (intcomma)
+```
+print(f"Папок: {humanize.intcomma(n_dirs)}")
+# 1000 -> "1,000" (en) или "1 000" (ru)
+```
 
+### 🐛 Обработка ошибок
 
+Утилита корректно обрабатывает различные проблемные ситуации, выводя понятные сообщения без технического traceback:
+
+| Ситуация | Сообщение |
+|----------|----------|
+| Директория не существует | ❌ Ошибка: Директория не найдена: `/wrong/path` |
+| Нет прав на чтение | ❌ Ошибка доступа: `[Errno 13] Permission denied: /root` |
+| Недоступная локаль | ⚠️ Локаль `xx_XX` не найдена, используется локаль по умолчанию |
+| Ошибка при чтении файла | `(ошибка: bad_file.txt) — [Errno 2] No such file or directory` |
 
