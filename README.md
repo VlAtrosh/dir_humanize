@@ -90,7 +90,11 @@ dir_humanize/
 
 ## 📦 Модуль dir_humanize.py
 
-
+| Функция | Назначение | Использование humanize |
+|---------|------------|------------------------|
+| `get_mtime_display(mtime, now)` | Преобразует timestamp в относительное время | `humanize.naturaltime()` для свежих файлов (< 7 дней)<br>`humanize.naturalday()` для старых |
+| `scan_directory(path, now)` | Сканирует директорию, собирает данные о файлах/папках | — |
+| `main()` | Парсит аргументы, координирует работу, выводит результат | `humanize.i18n.activate()` для локализации<br>`humanize.naturalsize()` для размеров<br>`humanize.intcomma()` для чисел в сводке |
 
 
 
