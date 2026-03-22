@@ -23,17 +23,21 @@
    git clone <your-repo-url>
    cd dir_humanize
 2. Создайте виртуальное окружение (рекомендуется):
+   ```bash
    python3 -m venv .venv
    source .venv/bin/activate  # Linux/macOS
    .venv\Scripts\activate     # Windows
-3.Установите единственную зависимость:
-   pip install humanize
 
+3.Установите единственную зависимость:
+   ```bash
+   pip install humanize
+   ```
 ##📋 Справка по командам
+
 usage: dir_humanize.py [-h] [--locale LOCALE] [--binary] [directory]
 
 📁 Консольная утилита для анализа содержимого директории с humanize
-
+```bash
 positional arguments:
   directory             Путь к директории (по умолчанию: текущая)
 
