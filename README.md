@@ -96,7 +96,7 @@ dir_humanize/
 | `scan_directory(path, now)` | Сканирует директорию, собирает данные о файлах/папках | — |
 | `main()` | Парсит аргументы, координирует работу, выводит результат | `humanize.i18n.activate()` для локализации<br>`humanize.naturalsize()` для размеров<br>`humanize.intcomma()` для чисел в сводке |
 
-### 🧠 Ключевые концепции
+## 🧠 Ключевые концепции
 1. Преобразование размеров (naturalsize)
 ```
 size_str = humanize.naturalsize(size, binary=args.binary)
